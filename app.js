@@ -78,6 +78,11 @@ app.post('/login', (req, res) => {
                 })
 })
 
+//http://localhost:3000/register
+app.get("/register", function(req, res){
+        res.render('register')
+})
+
 app.use('/login', AuthRoute)
 
 //404 error page
