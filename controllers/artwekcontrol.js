@@ -1,21 +1,23 @@
-const User = require('../models/user')
+const Artwork = require('../models/artwork')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
-const register = (req, res, next) => {
+const artwork = (req, res, next) => {
     bcrypt.hash(req.body.password, 10, function(err, hashedPass){
         if(err) {
             exports.json({
                 error: err
             })
         }
-        let user = new User ({
-            name: req.body.name,
-            email: req.body.email,
-            password: hashedPass
+        let artwork = new Artwork ({
+            imagePath: req.body.imagePath,
+            title: req.body.title,
+            itemNumber: req.body.itemNumber,
+            description: req.body.description,
+            price: req.body.price,
         })
-        user.save()
-            .then(user => {
+        artwork.save()
+            .then(artwork => {
                 res.json({
                     message: 'Account created'
                 })
@@ -29,5 +31,5 @@ const register = (req, res, next) => {
 }
 
 module.exports = {
-    register
+    artwork
 }

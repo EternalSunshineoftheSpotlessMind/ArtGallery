@@ -16,75 +16,35 @@
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 		</noscript>
 	</head>
-	<body class="homepage">
-
+	<body>
 	<!-- Header -->
-		<%- include('./partials/header.ejs') %>
+	<%- include('./partials/header.ejs') %>
 	<!-- Header -->
 
 	<!-- Main -->
 		<div id="main">
 
-			<div class="container">
-				<section>
-					<header>
-						<h2>Gallery</h2>
-					</header>
-					<div class="row">
-						<div class="4u">
-							<section>
-								<h3>"The Persistence of Memory" - Salvador Dali</h3>
-								<img src="files/SalvadorDali/The Persistence of Memory.jpg" alt="dali_Memory" width="400" height="250">
-								<p>'The Persistence of Memory' is a 1931 painting by artist Salvador Dalí and one of the most recognizable works of Surrealism.</p>
-								<a href="/details" class="button">View Full Details</a>
-							</section>
+			<% for(var i=0; i<docs.length; i++){ %>
+			<div class="row">
+  			<div class="col-sm-6 col-md-4">
+    			<div class="thumbnail">
+      		<img src="<%= docs[i].imagePath %>" class="img-responsive">
+      			<div class="caption">
+        		<h3 class="title"><%= docs[i].title %></h3>
+        		<p class="description"><%= docs[i].description %></p>
+							<div class="clearfix">
+								<div class="gal-price pull-left"><%= docs[i].price %></div>
+								<a href="#" class="btn btn-default pull-right" role="button">View Details</a></p>
+							</div>
 						</div>
-						<div class="4u">
-							<section>
-								<h3>"the old bends a painful weapon" - Ivan Seal</h3>
-								<img src="files/IvanSeal/the old bends a painful weapon.jpg" alt="seal_oldbends" width="300" height="550">
-								<p>'the old bends a paniful weapon' made by Ivan Seal who was born in Stockport, England and lives and works in Berlin.</p>
-								<a href="#" class="button">View Full Details</a>
-							</section>
-						</div>
-						<div class="4u">
-							<section>
-								<h3>"Firebird" - Ted Geisel</h3>
-								<img src="files/TedGeisel/Firebird.jpg" alt="geisel_firebird" width="400" height="350">
-								<p>'Freebird', a long sold-out limited edition, depicts a yellow Seussian bird, sailing contentedly midst waves rolling against a rosy sky, his incredibly long tail floating high above him. </p>
-								<a href="#" class="button">View Full Details</a>
-							</section>
-						</div>
-                        <div class="4u">
-							<section>
-								<h3>"Homage to Erik Satie" - Salvador Dali</h3>
-								<img src="files/SalvadorDali/Homage to Erik Satie.jpg" alt="dali_homage" width="300" height="550">
-								<p>'Homage to Erik Satie' was created in c.1926 by Salvador Dali in Cubism style. </p>
-								<a href="#" class="button">View Full Details</a>
-							</section>
-						</div>
-                        <div class="4u">
-							<section>
-								<h3>"the comfort under another total joke" - Ivan Seal</h3>
-								<img src="files/IvanSeal/the comfort under another total joke.jpg" alt="seal_joke" width="300" height="550">
-								<p>'the comfort under another total joke' made by Ivan Seal who was born in Stockport, England and lives and works in Berlin. </p>
-								<a href="#" class="button">View Full Details</a>
-							</section>
-						</div>
-                        <div class="4u">
-							<section>
-								<h3>"The Rather Odd Myopic Woman" - Ted Geisel</h3>
-								<img src="files/TedGeisel/The Rather Odd Myopic Woman.jpg" alt="geisel_myopic" width="450" height="550">
-								<p>Dr. Seuss was keenly aware of the many cultural and artistic movements which took shape throughout his career. In fact, his hometown of Springfield, Massachusetts hosted one of this country’s first surrealist exhibitions, which no doubt had a lifelong impact on Seuss. Myopic Woman is unmistakably Seuss, but at the same time is a nod and a wink to cubists Picasso and Braque, as well as surrealists Miro, Magritte, and Dali. </p>
-								<a href="#" class="button">View Full Details</a>
-							</section>
-						</div>
-					</div>
-				</section>
+    			</div>
+  			</div>
 			</div>
-		</div>
+			<% } %>
+
 	<!-- /Main -->
 
 	<!-- Footer -->
@@ -100,6 +60,9 @@
 			</ul>
 		</div>
 	</footer>
+
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="bootstrap/js/bootstrap.min.js"></script>
 
 	</body>
 </html>
